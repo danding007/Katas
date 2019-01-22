@@ -2,8 +2,10 @@ package com.katas;
 
 public class CarMileage {
 
+	public static final int NOT_INTERESTING = 0;
+
 	public static int isInteresting(int number, int[] awesomePhrases) {
-		return 0;
+		return NOT_INTERESTING;
 	}
 
 }
