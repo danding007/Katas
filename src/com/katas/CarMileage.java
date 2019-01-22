@@ -21,8 +21,8 @@ public class CarMileage {
 
 	private static boolean isSequentialIncrementing(String mileage) {
 		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i - 1) + 1 != (int)mileage.charAt(i)) {
-				return false;
+			if (mileage.charAt(i - 1) + 1 != mileage.charAt(i)) {
+				return i == mileage.length() - 1 && mileage.charAt(i - 1) == '9' && mileage.charAt(i) == '0';
 			}
 		}
 		return true;

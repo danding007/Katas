@@ -30,4 +30,9 @@ public class CarMileageTest {
 	public void should_return_interesting_given_mileage_is_sequential_incrementing() {
 		assertEquals(2, CarMileage.isInteresting(1234, new int[]{}));
 	}
+
+	@Test
+	public void should_return_interesting_given_mileage_is_end_with_0_and_sequential_incrementing() {
+		assertEquals(2, CarMileage.isInteresting(7890, new int[]{}));
+	}
 }
