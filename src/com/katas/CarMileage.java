@@ -9,6 +9,9 @@ public class CarMileage {
 		if (number == 100) {
 			return INTERESTING;
 		}
+		if (number == 200) {
+			return INTERESTING;
+		}
 		return NOT_INTERESTING;
 	}
 
