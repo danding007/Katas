@@ -1,5 +1,7 @@
 package com.katas;
 
+import java.util.stream.IntStream;
+
 public class CarMileage {
 
 	public static final int NOT_INTERESTING = 0;
@@ -14,11 +16,16 @@ public class CarMileage {
 				|| isEveryDigitIsSame(mileage)
 				|| isSequentialIncrementing(mileage)
 				|| isSequentialDecrementing(mileage)
-				||isPalindromeNumber(mileage);
+				|| isPalindromeNumber(mileage)
+				|| isAwesomePhrase(number, awesomePhrases);
 		if (isInterestingNumber) {
 			return INTERESTING;
 		}
 		return NOT_INTERESTING;
+	}
+
+	private static boolean isAwesomePhrase(int number, int[] awesomePhrases) {
+		return IntStream.of(awesomePhrases).anyMatch(n -> n == number);
 	}
 
 	private static boolean isPalindromeNumber(String mileage) {
