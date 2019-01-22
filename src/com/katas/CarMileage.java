@@ -18,7 +18,7 @@ public class CarMileage {
 		if (isInterestingNumber(number, awesomePhrases)) {
 			return INTERESTING;
 		}
-		if (isInterestingNumber(number + 1, awesomePhrases)) {
+		if (isInterestingNumber(number + 1, awesomePhrases) || isInterestingNumber(number + 2, awesomePhrases)) {
 			return ALMOST_INTERESTING;
 		}
 		return NOT_INTERESTING;
