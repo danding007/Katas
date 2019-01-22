@@ -42,4 +42,9 @@ public class CarMileageTest {
 		assertEquals(2, CarMileage.isInteresting(3210, new int[]{}));
 	}
 
+	@Test
+	public void should_return_interesting_given_mileage_is_palindrome() {
+		assertEquals(2, CarMileage.isInteresting(11211, new int[]{}));
+	}
+
 }

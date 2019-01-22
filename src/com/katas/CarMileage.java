@@ -13,21 +13,30 @@ public class CarMileage {
 		boolean isInterestingNumber = isAnyDigitFollowedByAllZeros(mileage)
 				|| isEveryDigitIsSame(mileage)
 				|| isSequentialIncrementing(mileage)
-				|| isSequentialDecrementing(mileage);
+				|| isSequentialDecrementing(mileage)
+				||isPalindromeNumber(mileage);
 		if (isInterestingNumber) {
 			return INTERESTING;
 		}
 		return NOT_INTERESTING;
 	}
 
-	private static boolean isSequentialDecrementing(String mileage) {
-		boolean isSequentialDecrementing = true;
-		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i - 1) - 1 != mileage.charAt(i)) {
-				isSequentialDecrementing = false;
+	private static boolean isPalindromeNumber(String mileage) {
+		for (int i = 0; i < mileage.length() / 2; i++) {
+			if (mileage.charAt(i) != mileage.charAt(mileage.length() - 1 - i)) {
+				return false;
 			}
 		}
-		return isSequentialDecrementing;
+		return true;
+	}
+
+	private static boolean isSequentialDecrementing(String mileage) {
+		for (int i = 1; i < mileage.length(); i++) {
+			if (mileage.charAt(i - 1) - 1 != mileage.charAt(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private static boolean isSequentialIncrementing(String mileage) {
