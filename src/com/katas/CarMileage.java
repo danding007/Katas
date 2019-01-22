@@ -10,13 +10,10 @@ public class CarMileage {
 			return NOT_INTERESTING;
 		}
 		String mileage = String.valueOf(number);
-		if (isAnyDigitFollowedByAllZeros(mileage)) {
-			return INTERESTING;
-		}
-		if (isEveryDigitIsSame(mileage)) {
-			return INTERESTING;
-		}
-		if (isSequentialIncrementing(mileage)) {
+		boolean isInterestingNumber = isAnyDigitFollowedByAllZeros(mileage)
+				|| isEveryDigitIsSame(mileage)
+				|| isSequentialIncrementing(mileage);
+		if (isInterestingNumber) {
 			return INTERESTING;
 		}
 		return NOT_INTERESTING;
