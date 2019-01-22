@@ -24,10 +24,9 @@ public class CarMileage {
 		}
 		String mileage = String.valueOf(number);
 		return isAnyDigitFollowedByAllZeros(mileage)
-				|| isEveryDigitIsSame(mileage)
+				|| isPalindromeNumber(mileage)
 				|| isSequentialIncrementing(mileage)
 				|| isSequentialDecrementing(mileage)
-				|| isPalindromeNumber(mileage)
 				|| isAwesomePhrase(number, awesomePhrases);
 	}
 
@@ -36,6 +35,7 @@ public class CarMileage {
 	}
 
 	private static boolean isPalindromeNumber(String mileage) {
+//		return new StringBuilder(mileage).reverse().toString().equals(mileage);
 		for (int i = 0; i < mileage.length() / 2; i++) {
 			if (mileage.charAt(i) != mileage.charAt(mileage.length() - 1 - i)) {
 				return false;
@@ -45,39 +45,15 @@ public class CarMileage {
 	}
 
 	private static boolean isSequentialDecrementing(String mileage) {
-		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i - 1) - 1 != mileage.charAt(i)) {
-				return false;
-			}
-		}
-		return true;
+		return "9876543210".contains(mileage);
 	}
 
 	private static boolean isSequentialIncrementing(String mileage) {
-		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i - 1) + 1 != mileage.charAt(i)) {
-				return i == mileage.length() - 1 && mileage.charAt(i - 1) == '9' && mileage.charAt(i) == '0';
-			}
-		}
-		return true;
-	}
-
-	private static boolean isEveryDigitIsSame(String mileage) {
-		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i - 1) != mileage.charAt(i)) {
-				return false;
-			}
-		}
-		return true;
+		return "1234567890".contains(mileage);
 	}
 
 	private static boolean isAnyDigitFollowedByAllZeros(String mileage) {
-		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i) != '0') {
-				return false;
-			}
-		}
-		return true;
+		return mileage.matches("\\d0+");
 	}
 
 }
