@@ -52,4 +52,9 @@ public class CarMileageTest {
 		assertEquals(2, CarMileage.isInteresting(1314, new int[]{256, 1314}));
 	}
 
+	@Test
+	public void should_return_almost_interesting_given_the_next_mileage_is_interesting() {
+		assertEquals(1, CarMileage.isInteresting(1313, new int[]{256, 1314}));
+	}
+
 }

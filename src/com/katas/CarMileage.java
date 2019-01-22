@@ -21,6 +21,9 @@ public class CarMileage {
 		if (isInterestingNumber) {
 			return INTERESTING;
 		}
+		if (isInteresting(number + 1, awesomePhrases) == INTERESTING) {
+			return 1;
+		}
 		return NOT_INTERESTING;
 	}
 
