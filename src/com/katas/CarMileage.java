@@ -9,12 +9,6 @@ public class CarMileage {
 	public static final int ALMOST_INTERESTING = 1;
 
 	public static int isInteresting(int number, int[] awesomePhrases) {
-		if (number == 99 || number == 98) {
-			return ALMOST_INTERESTING;
-		}
-		if (number < 100) {
-			return NOT_INTERESTING;
-		}
 		if (isInterestingNumber(number, awesomePhrases)) {
 			return INTERESTING;
 		}
@@ -25,6 +19,9 @@ public class CarMileage {
 	}
 
 	private static boolean isInterestingNumber(int number, int[] awesomePhrases) {
+		if (number < 100) {
+			return false;
+		}
 		String mileage = String.valueOf(number);
 		return isAnyDigitFollowedByAllZeros(mileage)
 				|| isEveryDigitIsSame(mileage)
