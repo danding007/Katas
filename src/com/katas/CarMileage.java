@@ -11,20 +11,23 @@ public class CarMileage {
 		if (number < 100) {
 			return NOT_INTERESTING;
 		}
+		if (isInterestingNumber(number, awesomePhrases)) {
+			return INTERESTING;
+		}
+		if (isInterestingNumber(number + 1, awesomePhrases)) {
+			return 1;
+		}
+		return NOT_INTERESTING;
+	}
+
+	private static boolean isInterestingNumber(int number, int[] awesomePhrases) {
 		String mileage = String.valueOf(number);
-		boolean isInterestingNumber = isAnyDigitFollowedByAllZeros(mileage)
+		return isAnyDigitFollowedByAllZeros(mileage)
 				|| isEveryDigitIsSame(mileage)
 				|| isSequentialIncrementing(mileage)
 				|| isSequentialDecrementing(mileage)
 				|| isPalindromeNumber(mileage)
 				|| isAwesomePhrase(number, awesomePhrases);
-		if (isInterestingNumber) {
-			return INTERESTING;
-		}
-		if (isInteresting(number + 1, awesomePhrases) == INTERESTING) {
-			return 1;
-		}
-		return NOT_INTERESTING;
 	}
 
 	private static boolean isAwesomePhrase(int number, int[] awesomePhrases) {
