@@ -16,6 +16,15 @@ public class CarMileage {
 		if (isInterestingNumber) {
 			return INTERESTING;
 		}
+		boolean isSequentialDecrementing = true;
+		for (int i = 1; i < mileage.length(); i++) {
+			if (mileage.charAt(i - 1) - 1 != mileage.charAt(i)) {
+				isSequentialDecrementing = false;
+			}
+		}
+		if (isSequentialDecrementing) {
+			return INTERESTING;
+		}
 		return NOT_INTERESTING;
 	}
 
