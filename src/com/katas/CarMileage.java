@@ -12,20 +12,22 @@ public class CarMileage {
 		String mileage = String.valueOf(number);
 		boolean isInterestingNumber = isAnyDigitFollowedByAllZeros(mileage)
 				|| isEveryDigitIsSame(mileage)
-				|| isSequentialIncrementing(mileage);
+				|| isSequentialIncrementing(mileage)
+				|| isSequentialDecrementing(mileage);
 		if (isInterestingNumber) {
 			return INTERESTING;
 		}
+		return NOT_INTERESTING;
+	}
+
+	private static boolean isSequentialDecrementing(String mileage) {
 		boolean isSequentialDecrementing = true;
 		for (int i = 1; i < mileage.length(); i++) {
 			if (mileage.charAt(i - 1) - 1 != mileage.charAt(i)) {
 				isSequentialDecrementing = false;
 			}
 		}
-		if (isSequentialDecrementing) {
-			return INTERESTING;
-		}
-		return NOT_INTERESTING;
+		return isSequentialDecrementing;
 	}
 
 	private static boolean isSequentialIncrementing(String mileage) {
