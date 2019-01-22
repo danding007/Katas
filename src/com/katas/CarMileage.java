@@ -10,6 +10,9 @@ public class CarMileage {
 		if (number >= 100 && isAnyDigitFollowedByAllZeros(mileage)) {
 			return INTERESTING;
 		}
+		if (number == 111) {
+			return INTERESTING;
+		}
 		return NOT_INTERESTING;
 	}
 

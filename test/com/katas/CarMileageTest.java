@@ -20,4 +20,9 @@ public class CarMileageTest {
 	public void should_return_interesting_given_mileage_is_200() {
 		assertEquals(2, CarMileage.isInteresting(200, new int[]{256}));
 	}
+
+	@Test
+	public void should_return_interesting_given_all_digit_of_mileage_is_same() {
+		assertEquals(2, CarMileage.isInteresting(111, new int[]{}));
+	}
 }
