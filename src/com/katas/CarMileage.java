@@ -16,16 +16,19 @@ public class CarMileage {
 		if (isEveryDigitIsSame(mileage)) {
 			return INTERESTING;
 		}
-		boolean isIncrement = true;
-		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i - 1) + 1 != (int)mileage.charAt(i)) {
-				isIncrement = false;
-			}
-		}
-		if (isIncrement) {
+		if (isSequentialIncrementing(mileage)) {
 			return INTERESTING;
 		}
 		return NOT_INTERESTING;
+	}
+
+	private static boolean isSequentialIncrementing(String mileage) {
+		for (int i = 1; i < mileage.length(); i++) {
+			if (mileage.charAt(i - 1) + 1 != (int)mileage.charAt(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private static boolean isEveryDigitIsSame(String mileage) {
