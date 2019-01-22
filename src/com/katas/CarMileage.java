@@ -9,7 +9,7 @@ public class CarMileage {
 	public static final int ALMOST_INTERESTING = 1;
 
 	public static int isInteresting(int number, int[] awesomePhrases) {
-		if (number == 99) {
+		if (number == 99 || number == 98) {
 			return ALMOST_INTERESTING;
 		}
 		if (number < 100) {
