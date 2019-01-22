@@ -6,8 +6,12 @@ public class CarMileage {
 
 	public static final int NOT_INTERESTING = 0;
 	public static final int INTERESTING = 2;
+	public static final int ALMOST_INTERESTING = 1;
 
 	public static int isInteresting(int number, int[] awesomePhrases) {
+		if (number == 99) {
+			return ALMOST_INTERESTING;
+		}
 		if (number < 100) {
 			return NOT_INTERESTING;
 		}
@@ -15,7 +19,7 @@ public class CarMileage {
 			return INTERESTING;
 		}
 		if (isInterestingNumber(number + 1, awesomePhrases)) {
-			return 1;
+			return ALMOST_INTERESTING;
 		}
 		return NOT_INTERESTING;
 	}

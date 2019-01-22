@@ -8,7 +8,7 @@ public class CarMileageTest {
 
 	@Test
 	public void should_return_not_interesting_given_mileage_less_than_100() {
-		assertEquals(0, CarMileage.isInteresting(99, new int[]{256}));
+		assertEquals(0, CarMileage.isInteresting(55, new int[]{256}));
 	}
 
 	@Test
@@ -56,5 +56,12 @@ public class CarMileageTest {
 	public void should_return_almost_interesting_given_the_next_mileage_is_interesting() {
 		assertEquals(1, CarMileage.isInteresting(1313, new int[]{256, 1314}));
 	}
+
+	@Test
+	public void should_return_almost_interesting_given_the_mileage_is_99() {
+		assertEquals(1, CarMileage.isInteresting(99, new int[]{256, 1314}));
+	}
+
+
 
 }
