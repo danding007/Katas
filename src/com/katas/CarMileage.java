@@ -10,10 +10,20 @@ public class CarMileage {
 		if (number >= 100 && isAnyDigitFollowedByAllZeros(mileage)) {
 			return INTERESTING;
 		}
-		if (number == 111) {
+		boolean isEveryDigitIsSame = true;
+		for (int i = 1; i < mileage.length(); i++) {
+			if (mileage.charAt(i - 1) != mileage.charAt(i)) {
+				isEveryDigitIsSame = false;
+			}
+		}
+		if (number >= 100 && isEveryDigitIsSame) {
 			return INTERESTING;
 		}
 		return NOT_INTERESTING;
+	}
+
+	private static boolean isEveryDigitIsSame(String mileage) {
+		return false;
 	}
 
 	private static boolean isAnyDigitFollowedByAllZeros(String mileage) {
