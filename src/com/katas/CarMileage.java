@@ -16,7 +16,13 @@ public class CarMileage {
 		if (isEveryDigitIsSame(mileage)) {
 			return INTERESTING;
 		}
-		if (number == 1234) {
+		boolean isIncrement = true;
+		for (int i = 1; i < mileage.length(); i++) {
+			if (mileage.charAt(i - 1) + 1 != (int)mileage.charAt(i)) {
+				isIncrement = false;
+			}
+		}
+		if (isIncrement) {
 			return INTERESTING;
 		}
 		return NOT_INTERESTING;
