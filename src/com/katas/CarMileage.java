@@ -6,24 +6,26 @@ public class CarMileage {
 	public static final int INTERESTING = 2;
 
 	public static int isInteresting(int number, int[] awesomePhrases) {
+		if (number < 100) {
+			return NOT_INTERESTING;
+		}
 		String mileage = String.valueOf(number);
-		if (number >= 100 && isAnyDigitFollowedByAllZeros(mileage)) {
+		if (isAnyDigitFollowedByAllZeros(mileage)) {
 			return INTERESTING;
 		}
-		boolean isEveryDigitIsSame = true;
-		for (int i = 1; i < mileage.length(); i++) {
-			if (mileage.charAt(i - 1) != mileage.charAt(i)) {
-				isEveryDigitIsSame = false;
-			}
-		}
-		if (number >= 100 && isEveryDigitIsSame) {
+		if (isEveryDigitIsSame(mileage)) {
 			return INTERESTING;
 		}
 		return NOT_INTERESTING;
 	}
 
 	private static boolean isEveryDigitIsSame(String mileage) {
-		return false;
+		for (int i = 1; i < mileage.length(); i++) {
+			if (mileage.charAt(i - 1) != mileage.charAt(i)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private static boolean isAnyDigitFollowedByAllZeros(String mileage) {
